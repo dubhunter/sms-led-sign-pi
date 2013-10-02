@@ -12,9 +12,9 @@ last = ''
 while 1:
     try:
         r = requests.get('http://sign.willmason.me/message.txt')
+        if r.status_code == 200 and last != r.text:
+            sio.write(r.text)
+            last = r.text
     except Exception:
         pass
-    if r.status_code == 200 and last != r.text:
-        sio.write(r.text)
-        last = r.text
     time.sleep(1)
