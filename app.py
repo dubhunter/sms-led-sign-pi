@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-import time
+from time import sleep
 import serial
 import requests
 
 sio = serial.Serial('/dev/ttyACM0', 9600)
 
-time.sleep(3)
+sleep(3)
 
 last = ''
 
@@ -17,4 +17,4 @@ while 1:
             last = r.text
     except Exception:
         pass
-    time.sleep(1)
+    sleep(1)
